@@ -1,0 +1,39 @@
+app:
+  name: segmentation
+
+spring:
+  #   redis config
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    jedis:
+      pool:
+        max-active: 100 # Max number of connections that can be allocated by the pool at a given time. Use a negative value for no limit.
+        max-idle: 20 # Max number of "idle" connections in the pool. Use a negative value to indicate an unlimited number of idle connections.
+        min-idle: 10
+        pool-size: 30
+        max-wait: 3000 # Maximum amount of time (in milliseconds) a connection allocation should block before throwing an exception when the pool is exhausted. Use a negative value to block indefinitely.
+    timeout: 5000 # Connection timeout in milliseconds
+    time-to-live: 86400
+
+#   mongodb config
+  data:
+    redis:
+      repositories:
+        enabled: false
+    mongodb:
+      database: batch
+      uri: mongodb://localhost:27017/demo2
+      max-connections: 30
+      min-connections: 5
+      auto-index-creation: true
+
+# logging level
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          mongodb:
+            core:
+              MongoTemplate: DEBUG
