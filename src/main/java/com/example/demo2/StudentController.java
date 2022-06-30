@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
@@ -34,8 +33,8 @@ public class StudentController {
 
   @PostMapping
   public Student addStudent(@RequestBody Student student){
-    studentService.addStudent(student);
-    return studentService.getStudentByEmail(student.getEmail());
+    Student savedStudent = studentService.addStudent(student);
+    return savedStudent;
   }
 
 }

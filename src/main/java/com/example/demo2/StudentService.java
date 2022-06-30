@@ -23,8 +23,9 @@ public class StudentService {
     return studentRepository.findAll();
   }
 
-  public void addStudent(Student student) {
-    studentRepository.save(student);
+  public Student addStudent(Student student) {
+    Student savedStudent = studentRepository.save(student);
+    return savedStudent;
   }
 
   @Cacheable(value = "students", key = "#email")

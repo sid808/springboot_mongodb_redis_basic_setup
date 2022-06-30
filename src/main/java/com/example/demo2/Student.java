@@ -1,5 +1,6 @@
 package com.example.demo2;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -26,6 +27,8 @@ public class Student implements Serializable {
   private Address address;
   private List<String> favouriteSubjects;
   private BigDecimal totalSpentInBooks;
-  private LocalDateTime createdAt;
+
+  @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss[.SSS]")
+  private LocalDateTime createdAt = LocalDateTime.now();
 
 }

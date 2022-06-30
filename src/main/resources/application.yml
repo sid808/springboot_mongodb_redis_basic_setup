@@ -1,5 +1,5 @@
 app:
-  name: segmentation
+  name: demo2
 
 spring:
   #   redis config
@@ -23,7 +23,7 @@ spring:
         enabled: false
     mongodb:
       database: batch
-      uri: mongodb://localhost:27017/demo2
+      uri: mongodb://localhost:27017
       max-connections: 30
       min-connections: 5
       auto-index-creation: true
